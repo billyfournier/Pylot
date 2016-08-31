@@ -1,0 +1,79 @@
+<html>
+  <head>
+    <title>Test Page</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+
+    <script>
+      $(function(){
+
+        $('#api').submit(function(){
+          $.get('/users/get_data', function(res){
+            console.log(res['report']);
+            console.log(res['report']['food']);
+            console.log(res['report']['food']['name']);                         //name
+            console.log(res['report']['food']['nutrients'][0]);                 //Water
+            console.log(res['report']['food']['nutrients'][1]);                 //Calories
+            $('#content').html(res['report']['food']['name']);
+          }, "json");
+          return false;
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">WebSiteName</a>
+        </div>
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/users/test_page">Home</a></li>
+          <!-- <li><a href="#">Page 1</a></li> -->
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </nav> <!-- end of navbar -->
+
+    <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+    <div class="container-fluid">
+      <div class="row top">
+        <div class="col-sm-4 col-sm-offset-4">
+          {% with messages = get_flashed_messages() %}
+            {% if messages %}
+              <ul class='flashes'>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+              </ul>
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+    </div> <!-- end of flash msg -->
+
+    <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4 text-center">
+        <form action='/users/get_data' method='post' id='api'>
+          <button type='submit' class="btn btn-primary" >API TEST</button>
+        </form>
+      </div>
+    </div>
+
+    <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+    <div class="row">
+      <div class="col-xs-4 col-xs-offset-4 border">
+          <div id='content' class="border">
+          </div>
+      </div>
+    </div>
+    <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
+    {{ msg }}
+  </body>
+</html>

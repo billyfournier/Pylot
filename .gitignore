@@ -4,3 +4,5 @@
 venv/*
 pylotVenv/*
 __pycache__/*
+venv_recipes/*
+.api_key

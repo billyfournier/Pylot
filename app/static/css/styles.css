@@ -1,3 +1,11 @@
 * {
   font-family: monaco;
 }
+
+.border {
+  border: solid 1px black;
+}
+
+#content {
+  padding: 5px;  
+}

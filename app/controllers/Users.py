@@ -8,3 +8,10 @@ class Users(Controller):
 
     def index(self):
         return self.load_view('index.html')
+    def test_page(self):
+        return self.load_view('test.html')
+
+    def get_data(self):
+        data = self.models['UserModel'].get_data()
+        print data
+        return data
