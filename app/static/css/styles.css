@@ -6,20 +6,40 @@
   border: solid 1px black;
 }
 
-#content {
+#content  {
   padding: 2px;
   margin: 2px;
+
+}
+#nf {
+  font-family: "Franklin Gothic Medium", "Franklin Gothic", "ITC Franklin Gothic", Arial, sans-serif;
+  font-size: 36px;
+  font-weight: bold;
 }
 #serving_title {
   border-bottom: solid black 8px;
 }
 #serving_size {
-  border-bottom: solid lightgrey 1px;
+  font-weight: bold;
 }
-#calories {
+/*#calories {
+  font-family: "Franklin Gothic Medium", "Franklin Gothic";
+  font-size: 17.5px;
   border-bottom: solid black 4px;
-}
+}*/
 #dv {
-  border-bottom: solid lightgrey 1px;
+  border-top: solid black 4px;
+  font-family: "Franklin Gothic Medium", "Franklin Gothic";
   text-align: right;
+}
+
+#calories, #totfat, #cholesterol, #sodium, #totcarb ,#protein {
+  border-top: solid lightgrey 2px;
+  font-family: "Franklin Gothic Medium", "Franklin Gothic";
+  font-size: 17.5px;
+}
+
+#satfat, #tranfat, #dietfiber, #sugars {
+  border-top: solid lightgrey 1px;
+  margin-left: 20px;
 }

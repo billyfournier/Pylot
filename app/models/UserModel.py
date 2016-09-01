@@ -23,10 +23,22 @@ class UserModel(Model):
         api_response = requests.get(api_query).content
         return api_response
 
-    def get_food_list(self):
+    def get_list(self):
         with open('.api_key') as infile:
             api_key = infile.readline().rstrip()
-        api_query =  'http://api.nal.usda.gov/ndb/list?'
-        api_query += 'format=json&lt=f&max=1000'+api_key
-        api_response = requests.get(query)
+        api_query =  'http://api.nal.usda.gov/ndb/list'
+        api_query += '?format=json&lt=g&max=1000&sort=n'
+        api_query += '&api_key='+api_key
+        api_response = requests.get(api_query).content
+        return api_response
+
+    def get_group(self, group_id):
+        with open('.api_key') as infile:
+            api_key = infile.readline().rstrip()
+        g_id = group_id['id']
+        api_query =  'http://api.nal.usda.gov/ndb/search/'
+        api_query += '?format=json&lt='+g_id+'&max=1000&sort=n&max=10&sort=n'
+        api_query += '&api_key='+api_key
+        api_query += '&fg='+g_id
+        api_response = requests.get(api_query).content
         return api_response
