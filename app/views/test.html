@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Test Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
@@ -67,12 +68,30 @@
     </div>
 
     <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
-    <div class="row">
-      <div class="col-xs-4 col-xs-offset-4 border">
-          <div id='content' class="border">
+    <!-- <div class="row"> -->
+      <div class="col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12">
+          <div id='box' class="border">
+            <div id="content" class='border'>
+              <h2>Nutrition Facts</h2>
+              <p id='serving_title'>Serving size</p>
+              <p id="serving_size">Amount Per Serving</p>
+              <p id="calories">Calories</p>
+              <p id='dv'> % Daily Values* </p>
+              <p id='totfat'>Total Fat</p>    
+              <p id="satfat">Saturated Fat</p>
+              <p id="tranfat">Trans Fat</p>
+              <p id="cholesterol">Cholesterol</p>
+              <p id="sodium">Sodium</p>
+              <p id='totcarb'>Total Carbohydrate</p>
+              <p id="dietfiber">Dietary Fiber</p>
+              <p id="Sugars">Sugars</p>
+              <p id="Protein">Protien</p>
+
+
+            </div>
           </div>
       </div>
-    </div>
+    <!-- </div> -->
     <!--  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  -->
     {{ msg }}
   </body>
